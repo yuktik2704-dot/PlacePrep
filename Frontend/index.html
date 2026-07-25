@@ -5,13 +5,12 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PlacePrep AI</title>
+<title>Welcome Back • PlacePrep AI</title>
 
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
 
 <link
 href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -29,143 +28,45 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <div class="bg-blur blur2"></div>
 <div class="bg-blur blur3"></div>
 
-<header class="navbar">
+<div class="login-wrapper">
 
-<div class="logo">
+<div class="left-panel">
+
+<div class="brand">
 
 <i class="fa-solid fa-graduation-cap"></i>
 
-<span>PlacePrep AI</span>
-
-</div>
-
-<nav>
-
-<a href="#">Features</a>
-
-<a href="#">Dashboard</a>
-
-<a href="#">Interview</a>
-
-<a href="#">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-left">
-
-<div class="tag">
-
-🚀 AI Powered Placement Platform
-
-</div>
-
-<h1>
-
-Land Your
-
-<span>Dream Job</span>
-
-Smarter
-
-</h1>
+<h1>PlacePrep AI</h1>
 
 <p>
 
-Analyze your resume,
-
-improve your ATS score,
-
-discover missing skills,
-
-generate personalized projects
-
-and crack interviews with AI.
+AI Powered Career Companion
 
 </p>
 
-<div class="hero-buttons">
-
-<button
-class="primary-btn"
-onclick="scrollToLogin()">
-
-Get Started
-
-</button>
-
-<button class="secondary-btn">
-
-Learn More
-
-</button>
-
 </div>
-
-<div class="hero-stats">
-
-<div>
-
-<h2>95%</h2>
-
-<p>ATS Accuracy</p>
-
-</div>
-
-<div>
-
-<h2>500+</h2>
-
-<p>Interview Questions</p>
-
-</div>
-
-<div>
-
-<h2>24/7</h2>
-
-<p>AI Assistant</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-right">
 
 <div class="preview-card">
 
 <div class="preview-header">
 
-<h3>
-
-Resume Analysis
-
-</h3>
+<h3>Live Resume Insights</h3>
 
 <span class="live">
-
 ● Live
-
 </span>
 
 </div>
 
-<div class="ats-circle">
-
-91%
-
+<div class="ats-circle" id="atsCircle">
+AI
 </div>
 
 <div class="mini-grid">
 
 <div>
 
-<h3>12</h3>
+<h3>18</h3>
 
 <p>Skills</p>
 
@@ -181,9 +82,9 @@ Resume Analysis
 
 <div>
 
-<h3>18</h3>
+<h3>94%</h3>
 
-<p>Questions</p>
+<p>ATS</p>
 
 </div>
 
@@ -211,9 +112,9 @@ Resume Health
 
 <div class="progress-title">
 
-ATS Optimization
+Interview Ready
 
-<span>87%</span>
+<span>95%</span>
 
 </div>
 
@@ -225,95 +126,11 @@ ATS Optimization
 
 </div>
 
-<div class="progress-box">
-
-<div class="progress-title">
-
-Interview Ready
-
-<span>95%</span>
-
-</div>
-
-<div class="progress">
-
-<div class="fill fill3"></div>
-
 </div>
 
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FEATURES ================= -->
-
-<section class="features">
-
-<div class="feature-card">
-
-<i class="fa-solid fa-file-lines"></i>
-
-<h3>AI Resume Analysis</h3>
-
-<p>
-
-Get detailed ATS analysis, resume score, and personalized feedback instantly.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-lightbulb"></i>
-
-<h3>Skill Gap Detection</h3>
-
-<p>
-
-Identify missing technologies and skills recruiters expect in your profile.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-code"></i>
-
-<h3>Project Recommendations</h3>
-
-<p>
-
-Receive AI-generated project ideas tailored to your resume and career goals.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-microphone-lines"></i>
-
-<h3>AI Mock Interview</h3>
-
-<p>
-
-Practice HR and technical interviews with instant AI-powered feedback.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= LOGIN ================= -->
-
-<section class="login-section" id="loginSection">
+<div class="right-panel">
 
 <div class="login-card">
 
@@ -327,7 +144,7 @@ Welcome Back 👋
 
 <p>
 
-Login to continue your placement journey.
+Continue your placement journey with AI.
 
 </p>
 
@@ -340,16 +157,10 @@ Login to continue your placement journey.
 <i class="fa-solid fa-envelope"></i>
 
 <input
-
 type="email"
-
 id="email"
-
-placeholder="Enter Email"
-
-required
-
->
+placeholder="Enter your email"
+required>
 
 </div>
 
@@ -358,46 +169,58 @@ required
 <i class="fa-solid fa-lock"></i>
 
 <input
-
 type="password"
-
 id="password"
-
-placeholder="Enter Password"
-
-required
-
->
+placeholder="Enter your password"
+required>
 
 </div>
 
-<div class="forgot-password">
+<div class="login-options">
 
-<a href="#">
+<label class="remember">
 
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="#" onclick="comingSoon()">
 Forgot Password?
-
 </a>
 
 </div>
 
 <button
-
 type="submit"
+class="login-btn">
 
-class="login-btn"
-
->
-
-Continue
+Continue →
 
 </button>
 
 </form>
 
+<div class="divider">
+
+<span>OR</span>
+
+</div>
+
+<button class="google-btn">
+
+<img
+src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+width="20">
+
+Continue with Google
+
+</button>
+
 <div class="signup-text">
 
-Don't have an account?
+New to PlacePrep AI?
 
 <a href="signup.html">
 
@@ -409,74 +232,11 @@ Create Account
 
 </div>
 
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-<div class="footer-content">
-
-<h2>
-
-PlacePrep AI
-
-</h2>
-
-<p>
-
-Built with ❤️ to help students become placement ready through AI-powered resume analysis and mock interviews.
-
-</p>
-
-<div class="footer-links">
-
-<a href="#">Privacy</a>
-
-<a href="#">Terms</a>
-
-<a href="#">Support</a>
-
-<a href="#">Contact</a>
+</div>
 
 </div>
 
-<p class="copyright">
-
-© 2026 PlacePrep AI. All Rights Reserved.
-
-</p>
-
-</div>
-
-</footer>
-
-<script>
-
-function scrollToLogin(){
-
-document.getElementById("loginSection").scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-document
-.getElementById("loginForm")
-.addEventListener(
-"submit",
-function(e){
-
-e.preventDefault();
-
-window.location.href = "login.html";
-
-}
-);
-
-</script>
+<script src="js/login.js"></script>
 
 </body>
 
