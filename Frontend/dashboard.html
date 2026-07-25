@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PlacePrep AI</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+<!-- ===========================
+        NAVBAR
+============================ -->
+
+<header class="navbar">
+
+<div class="logo">
+
+<h2>PlacePrep AI</h2>
+
+<p>Resume Intelligence Dashboard</p>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="#overview">Overview</a></li>
+
+<li><a href="#analysis">Analysis</a></li>
+
+<li><a href="#projectsSection">Projects</a></li>
+
+<li><a href="#roadmapSection">Roadmap</a></li>
+
+<li><a href="#interviewSection">Interview</a></li>
+
+</ul>
+
+</nav>
+
+<div class="nav-actions">
+
+<button id="downloadReportBtn" class="download-btn">
+    Download Report
+</button>
+
+</div>
+
+</header>
+
+<!-- ===========================
+        HERO
+============================ -->
+
+<section class="hero" id="overview">
+
+<div class="hero-left">
+
+<span class="hero-badge">
+
+✨ Resume Analysis Complete
+
+</span>
+
+<h1 class="welcome-title">
+    Welcome, <span id="userName">User</span> 👋
+</h1>
+
+<p>
+
+Your AI Career Companion
+
+</p>
+
+</div>
+
+<div class="hero-right">
+
+<div class="score-card">
+
+<div class="score-wrapper">
+
+<div id="atsScore" class="score-circle">
+
+0%
+
+</div>
+
+</div>
+
+<h2 id="scoreLabel">
+
+Excellent Resume
+
+</h2>
+
+<p id="developerType">
+
+AI / ML Enthusiast
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        OVERVIEW CARDS
+============================ -->
+
+<section class="overview-grid">
+
+<div class="overview-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h4>ATS Score</h4>
+
+<h2 id="overviewScore">
+
+0%
+
+</h2>
+
+</div>
+
+<div class="overview-card">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<h4>Developer Type</h4>
+
+<h2 id="overviewDeveloper">
+
+--
+
+</h2>
+
+</div>
+
+<div class="overview-card">
+
+<i class="fa-solid fa-diagram-project"></i>
+
+<h4>Projects</h4>
+
+<h2 id="projectCount">
+
+0
+
+</h2>
+
+</div>
+
+<div class="overview-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h4>Missing Skills</h4>
+
+<h2 id="skillsCount">
+
+0
+
+</h2>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        AI SUMMARY
+============================ -->
+
+<section class="section" id="analysis">
+
+<div class="section-header">
+
+<h2>
+
+🤖 AI Resume Summary
+
+</h2>
+
+<p>
+
+Here's what our AI thinks about your profile.
+
+</p>
+
+</div>
+
+<div class="summary-card">
+
+<p id="summary"></p>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        RESUME HEALTH
+PART 2 STARTS HERE
+============================ -->
+
+<!-- ===========================
+        RESUME HEALTH
+============================ -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>
+
+📊 Resume Health
+
+</h2>
+
+<p>
+
+Performance across every resume section.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+<div class="health-item">
+
+<div class="health-top">
+
+<span>Skills</span>
+
+<strong id="skillsScore"></strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div id="skillsBar" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<div class="health-item">
+
+<div class="health-top">
+
+<span>Projects</span>
+
+<strong id="projectsScore"></strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div id="projectsBar" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<div class="health-item">
+
+<div class="health-top">
+
+<span>Experience</span>
+
+<strong id="experienceScore"></strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div id="experienceBar" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<div class="health-item">
+
+<div class="health-top">
+
+<span>Education</span>
+
+<strong id="educationScore"></strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div id="educationBar" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<div class="health-item">
+
+<div class="health-top">
+
+<span>Formatting</span>
+
+<strong id="formattingScore"></strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div id="formattingBar" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        STRENGTHS + WEAKNESSES
+============================ -->
+
+<section class="strength-grid">
+
+<div class="strength-column">
+
+<div class="section-header">
+
+<h2>
+
+💪 Strengths
+
+</h2>
+
+</div>
+
+<div id="strengths" class="strength-container">
+
+</div>
+
+</div>
+
+<div class="weakness-column">
+
+<div class="section-header">
+
+<h2>
+
+⚠ Weaknesses
+
+</h2>
+
+</div>
+
+<div id="weaknesses" class="weakness-container">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        MISSING SKILLS
+============================ -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>
+
+🎯 Missing Skills
+
+</h2>
+
+<p>
+
+Skills recruiters usually expect for your profile.
+
+</p>
+
+</div>
+
+<div id="missingSkills" class="skills-wrapper">
+
+</div>
+
+</section>
+
+<!-- ===========================
+        AI SUGGESTIONS
+============================ -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>
+
+🤖 AI Resume Suggestions
+
+</h2>
+
+<p>
+
+Quick improvements suggested by our AI.
+
+</p>
+
+</div>
+
+<div class="suggestion-card">
+
+<ul id="resumeSuggestions">
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        PROJECTS
+PART 3 STARTS HERE
+============================ -->
+
+<!-- ===========================
+        RECOMMENDED PROJECTS
+============================ -->
+
+<section class="section" id="projectsSection">
+
+    <div class="section-header">
+
+        <h2>🚀 Recommended Projects</h2>
+
+        <p>Projects that can significantly improve your resume.</p>
+
+    </div>
+
+    <div id="projects" class="projects-grid">
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+        ROADMAP
+============================ -->
+
+<section class="section" id="roadmapSection">
+
+    <div class="section-header">
+
+        <h2>🛣 Learning Roadmap</h2>
+
+        <p>Your personalized AI roadmap to crack placements.</p>
+
+    </div>
+
+    <div class="roadmap-card">
+
+        <ol id="roadmap" class="roadmap-list">
+
+        </ol>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+        AI INTERVIEW CTA
+============================ -->
+
+<section class="interview-section" id="interviewSection">
+
+    <div class="interview-content">
+
+        <div class="interview-left">
+
+            <span class="interview-badge">
+
+                ✨ AI Powered
+
+            </span>
+
+            <h2>
+
+                Ready for your Mock Interview?
+
+            </h2>
+
+            <p>
+
+                Practice with AI-generated interview questions based on your resume, receive instant feedback, improve your communication, technical knowledge and confidence before your real interviews.
+
+            </p>
+
+            <button id="startInterviewBtn" class="interview-btn">
+
+                🎤 Start AI Mock Interview
+
+            </button>
+
+        </div>
+
+        <div class="interview-right">
+
+            <div class="interview-card">
+
+                <div class="circle">
+
+                    🤖
+
+                </div>
+
+                <h3>
+
+                    Personalized Questions
+
+                </h3>
+
+                <p>
+
+                    HR • Technical • DSA • Resume • Projects
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+        FOOTER
+============================ -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 PlacePrep AI • Built with ❤️ by Yukti Kathuria and Prachi
+
+    </p>
+
+</footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/toast.js"></script>
+
+</body>
+
+</html>

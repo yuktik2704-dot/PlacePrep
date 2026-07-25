@@ -1,0 +1,324 @@
+/* ==========================================================
+                    GLOBAL RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#f8fafc;
+    color:#111827;
+    overflow-x:hidden;
+}
+
+/* ==========================================================
+                    LINKS
+========================================================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+
+input,
+textarea{
+    font-family:inherit;
+    outline:none;
+}
+
+/* ==========================================================
+                    MAIN CONTAINERS
+========================================================== */
+
+.container{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.section{
+    margin:70px 0;
+}
+
+/* ==========================================================
+                    BACKGROUND BLOBS
+========================================================== */
+
+.bg-blur{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    z-index:-2;
+
+    opacity:.55;
+
+    animation:blobMove 12s ease-in-out infinite;
+
+}
+
+.blur1{
+
+    width:340px;
+    height:340px;
+
+    background:#818cf8;
+
+    left:-80px;
+    top:-60px;
+
+}
+
+.blur2{
+
+    width:280px;
+    height:280px;
+
+    background:#c4b5fd;
+
+    right:-70px;
+    top:180px;
+
+    animation-delay:2s;
+
+}
+
+.blur3{
+
+    width:350px;
+    height:350px;
+
+    background:#ddd6fe;
+
+    left:40%;
+    bottom:-140px;
+
+    animation-delay:4s;
+
+}
+
+/* ==========================================================
+                    COMMON BUTTONS
+========================================================== */
+
+.primary-btn{
+
+    padding:18px 34px;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(79,70,229,.25);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 40px rgba(79,70,229,.35);
+
+}
+
+.secondary-btn{
+
+    padding:18px 34px;
+
+    border-radius:16px;
+
+    background:white;
+
+    border:2px solid #dbeafe;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#eef2ff;
+
+    border-color:#4f46e5;
+
+}
+
+/* ==========================================================
+                    COMMON CARD
+========================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    box-shadow:0 18px 35px rgba(0,0,0,.06);
+
+}
+
+/* ==========================================================
+                    ANIMATIONS
+========================================================== */
+
+@keyframes blobMove{
+
+0%{
+
+transform:translateY(0) translateX(0);
+
+}
+
+50%{
+
+transform:translateY(-30px) translateX(25px);
+
+}
+
+100%{
+
+transform:translateY(0) translateX(0);
+
+}
+
+}
+
+@keyframes fadeLeft{
+
+from{
+
+opacity:0;
+transform:translateX(-40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateX(0);
+
+}
+
+}
+
+@keyframes fadeRight{
+
+from{
+
+opacity:0;
+transform:translateX(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateX(0);
+
+}
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes growBar{
+
+from{
+
+width:0;
+
+}
+
+}
+
+@keyframes pop{
+
+0%{
+
+opacity:0;
+transform:scale(.7);
+
+}
+
+100%{
+
+opacity:1;
+transform:scale(1);
+
+}
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:1100px){
+
+.container{
+
+width:94%;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.section{
+
+margin:45px 0;
+
+}
+
+}

@@ -1,0 +1,189 @@
+/* ==========================================================
+                    AUTH PAGES
+========================================================== */
+
+.auth-wrapper{
+      min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:start;
+
+    padding:35px 8% 50px;
+
+
+    
+
+}
+
+.auth-card{
+
+    width:100%;
+
+    max-width:460px;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:42px;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    box-shadow:0 30px 70px rgba(79,70,229,.12);
+
+    animation:fadeRight .8s ease;
+
+}
+
+.auth-logo{
+
+    text-align:center;
+
+    margin-bottom:28px;
+
+}
+
+.auth-logo h1{
+
+    color:#4f46e5;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+.auth-logo p{
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+/* ================= INPUTS ================= */
+
+.input-group{
+
+    margin-bottom:18px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.input-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px;
+
+    background:white;
+
+    border:2px solid #e5e7eb;
+
+    border-radius:16px;
+
+    transition:.3s;
+
+}
+
+.input-box:focus-within{
+
+    border-color:#4f46e5;
+
+    box-shadow:0 0 0 5px rgba(79,70,229,.08);
+
+}
+
+.input-box i{
+
+    color:#6366f1;
+
+    width:18px;
+
+    text-align:center;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:15px;
+
+}
+
+/* ================= BUTTON ================= */
+
+.auth-btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+/* ================= FOOTER ================= */
+
+.auth-footer{
+
+    margin-top:28px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+.auth-footer a{
+
+    color:#4f46e5;
+
+    font-weight:700;
+
+}
+
+.auth-footer a:hover{
+
+    color:#7c3aed;
+
+}
+
+/* ================= SMALL ANIMATION ================= */
+
+.auth-card:hover{
+
+    transform:translateY(-5px);
+
+    transition:.3s;
+
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Upload Resume</title>
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/upload.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="bg-blur blur1"></div>
+<div class="bg-blur blur2"></div>
+<div class="bg-blur blur3"></div>
+
+<div class="upload-page">
+
+    <!-- Logo -->
+
+    <div class="upload-logo">
+
+        <span>⚡</span>
+
+        <h2>PlacePrep AI</h2>
+
+    </div>
+
+    <!-- Hero -->
+
+    <div class="upload-hero">
+
+    <h1>
+
+        Upload.
+
+        <span>Improve. Get Hired.</span>
+
+    </h1>
+
+    <p>
+
+        AI Resume Review • ATS Score • Skill Insights
+
+    </p>
+
+</div>
+
+    <!-- Upload Card -->
+
+    <div
+id="dropZone"
+class="upload-card">
+
+    <div class="upload-icon">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+    </div>
+
+    <h2>
+
+        Upload Resume
+
+    </h2>
+
+    <p class="upload-subtitle">
+
+        Drag & Drop your PDF
+
+    </p>
+
+    <label
+        class="browse-btn"
+        for="resume">
+
+        <i class="fa-solid fa-folder-open"></i>
+
+        Browse Resume
+
+    </label>
+
+    <input
+        type="file"
+        id="resume"
+        accept=".pdf"
+        hidden>
+
+    <div class="upload-hint">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        Secure Upload • Max 5 MB
+
+    </div>
+
+</div>
+
+    <!-- Uploaded Resume -->
+
+    <div
+        id="selectedFile"
+        class="resume-card"
+        style="display:none;">
+
+        <div class="resume-info">
+
+            <div class="pdf-circle">
+
+                📄
+
+            </div>
+
+            <div>
+
+                <h3 id="fileName">
+
+                    Resume.pdf
+
+                </h3>
+
+                <p id="fileSize">
+
+                    0 KB
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="success">
+
+<i class="fa-solid fa-circle-check"></i>
+
+Ready for AI Analysis
+
+</div>
+
+    </div>
+
+    <!-- Features -->
+
+    <div class="feature-pills">
+
+        <span>
+            <div> ⚡ </div> 
+            ATS Score</span>
+
+        <span>
+            <div>🎯</div>
+            Skill Gap</span>
+
+        <span>
+            <div> 💡</div> 
+            AI Suggestions</span>
+
+        <span>
+            <div> 🎤  </div>
+            Interview Ready</span>
+
+    </div>
+
+    <!-- Button -->
+
+    <button
+id="analyzeBtn"
+class="analyze-btn">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+Analyze with AI
+
+</button>
+
+</div>
+
+<script src="js/toast.js"></script>
+<script src="js/upload.js"></script>
+
+</body>
+
+</html>

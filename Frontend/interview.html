@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Mock Interview</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/interview.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="bg-blur blur1"></div>
+<div class="bg-blur blur2"></div>
+<div class="bg-blur blur3"></div>
+
+<div class="upload-page">
+
+<div class="glass-card">
+
+    <!-- =======================
+            HEADER
+    ======================== -->
+
+    <div class="interview-top">
+
+        <div class="interview-logo">
+
+            🤖
+
+        </div>
+
+        <div>
+
+            <h1>AI Mock Interview</h1>
+
+            <p class="subtitle">
+
+                Practice like a real interview.
+                Get AI-powered feedback after every session.
+
+            </p>
+
+        </div>
+
+    </div>
+
+   <div class="interview-header">
+
+    <!-- ROLE -->
+
+    <div class="role-pill">
+
+        <i class="fa-solid fa-code"></i>
+
+        <span id="roleName">
+
+            Full Stack Developer
+
+        </span>
+
+    </div>
+
+    <!-- PROGRESS -->
+
+    <div class="progress-mini">
+
+        <div class="progress-ring small-ring">
+
+            <svg width="64" height="64">
+
+                <circle
+                    class="ring-bg"
+                    cx="32"
+                    cy="32"
+                    r="26">
+                </circle>
+
+                <circle
+                    id="ringProgress"
+                    class="ring-progress"
+                    cx="32"
+                    cy="32"
+                    r="26">
+                </circle>
+
+            </svg>
+
+            <div class="ring-text">
+
+                <span id="questionCount">
+
+                    1/10
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TIMER -->
+
+    <div class="timer-pill">
+
+        <i class="fa-regular fa-clock"></i>
+
+        <span id="timer">
+
+            02:00
+
+        </span>
+
+    </div>
+
+</div>
+
+    
+
+        <!-- =======================
+            QUESTION CARD
+    ======================== -->
+
+    <div class="question-box">
+
+        <div class="question-meta">
+
+            <i class="fa-solid fa-circle-question"></i>
+
+            Current Question
+
+        </div>
+
+        <h2 id="questionText">
+
+            Loading Interview...
+
+        </h2>
+
+    </div>
+
+  <!-- =======================
+        ANSWER + AI TIP
+======================= -->
+
+<div class="answer-layout">
+
+    <!-- LEFT -->
+
+    <div class="interview-tip">
+
+        <div class="question-meta">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            AI Tip
+
+        </div>
+
+        <p>
+
+            Structure your answer using
+
+            <strong>STAR</strong>
+
+        </p>
+
+        <ul>
+
+            <li>Situation</li>
+
+            <li>Task</li>
+
+            <li>Action</li>
+
+            <li>Result</li>
+
+        </ul>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="answer-section">
+
+        <textarea
+            id="answer"
+            placeholder="Type here or click the microphone...">
+        </textarea>
+
+        <div class="typing-info">
+
+            <span id="wordCount">
+
+                0 Words
+
+            </span>
+
+            <div class="skill-chips">
+
+                <span id="leadChip" class="skill-chip">
+
+                    Leadership
+
+                </span>
+
+                <span id="commChip" class="skill-chip">
+
+                    Communication
+
+                </span>
+
+                <span id="probChip" class="skill-chip">
+
+                    Problem Solving
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+
+    <!-- =======================
+            ACTION BUTTONS
+    ======================== -->
+
+    <div class="button-group">
+
+        <button id="micBtn">
+
+            <span class="mic-icon">
+
+                <i class="fa-solid fa-microphone"></i>
+
+            </span>
+
+            <span id="micText">
+
+                Start Speaking
+
+            </span>
+
+        </button>
+
+        <button id="nextBtn">
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+            Next Question
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="js/toast.js"></script>
+
+<script src="js/interview.js"></script>
+
+</body>
+
+</html>
+
