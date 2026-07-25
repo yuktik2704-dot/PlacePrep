@@ -53,8 +53,8 @@ async function loadQuestions(){
     try{
 
         const response = await fetch(
-            `http://localhost:5000/api/interview/start/${resumeId}`
-        );
+    `https://placeprep-sb9x.onrender.com/api/interview/start/${resumeId}`
+);
 
         const data = await response.json();
 
@@ -362,7 +362,7 @@ async function finishInterview(){
 
         const response = await fetch(
 
-            "http://localhost:5000/api/interview/evaluate",
+            `https://placeprep-sb9x.onrender.com/api/interview/evaluate`,
 
             {
 
