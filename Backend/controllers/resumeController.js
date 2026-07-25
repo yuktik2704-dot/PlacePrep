@@ -14,7 +14,7 @@ const {
 
 const pdfParse = require("pdf-parse");
 
-const fs = require("fs");
+
 
 /* ==========================================================
                     BASIC EXTRACTION HELPERS
@@ -376,7 +376,7 @@ const uploadResume = async(req,res)=>{
 
         }
 
-        const pdfBuffer = fs.readFileSync(req.file.path);
+        const pdfBuffer = req.file.buffer;
 
         const pdfData = await pdfParse(pdfBuffer);
 
