@@ -151,42 +151,6 @@ PlacePrep
 
 ![Result](screenshots/result.png)
 
-## 📸 Application Preview
-
-### 🔐 Login Page
-
-![Login](screenshots/login.png)
-
----
-
-### 📝 Signup Page
-
-![Signup](screenshots/signup.png)
-
----
-
-### 📄 Resume Upload
-
-![Upload](screenshots/upload.png)
-
----
-
-### 🤖 AI Resume Analysis
-
-![Analysis](screenshots/analysis.png)
-
----
-
-### 🎤 AI Mock Interview
-
-![Interview](screenshots/interview.png)
-
----
-
-### 📊 Interview Feedback
-
-![Result](screenshots/result.png)
-
 ## 🌐 Live Demo
 
 ### Frontend
