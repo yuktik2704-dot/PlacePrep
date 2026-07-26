@@ -177,6 +177,7 @@ https://place-prep-nu.vercel.app/
 
 ### Backend API
 https://placeprep-sb9x.onrender.com
+
 ## 🔑 Environment Variables
 
 Create a `.env` file inside the Backend folder.
@@ -185,7 +186,8 @@ Create a `.env` file inside the Backend folder.
 GEMINI_API_KEY=your_gemini_api_key
 MONGODB_URI=your_mongodb_uri
 
-## 👥 Contributors
+```
+### 👥 Contributors
 
 ### 👩 Yukti Kathuria
 - Backend Development
