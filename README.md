@@ -175,7 +175,7 @@ https://placeprep-sb9x.onrender.com
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/yuktik2704-dot/PlacePrep
 ```
 
 ### Backend
@@ -190,22 +190,5 @@ npm start
 
 Open `index.html` in your browser or run using Live Server.
 
-## ⚙️ Installation
 
-### Clone Repository
 
-```bash
-git clone <repository-url>
-```
-
-### Backend
-
-```bash
-cd Backend
-npm install
-npm start
-```
-
-### Frontend
-
-Open `index.html` in your browser or run using Live Server.
