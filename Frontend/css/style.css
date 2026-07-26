@@ -3178,12 +3178,13 @@ letter-spacing:.5px;
     gap:10px;
 }
 
-.logo img{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-}
 
+.brand img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
 
 
 

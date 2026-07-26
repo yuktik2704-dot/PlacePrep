@@ -38,14 +38,11 @@
 
 }
 
-.brand i{
-
-    font-size:48px;
-
-    color:#4f46e5;
-
+.brand img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
     margin-bottom:18px;
-
 }
 
 .brand h1{
@@ -69,6 +66,17 @@
     line-height:1.8;
 
     max-width:480px;
+
+}
+.brand img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
 
 }
 
