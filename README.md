@@ -175,7 +175,7 @@ https://placeprep-sb9x.onrender.com
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yuktik2704-dot/PlacePrep
+git clone https://github.com/yuktik2704-dot/PlacePrep.git
 ```
 
 ### Backend
