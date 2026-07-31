@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32"
+href="assets/favicon-32x32.png">
+
+<link rel="icon" type="image/png" sizes="16x16"
+href="assets/favicon-16x16.png">
+
+<link rel="apple-touch-icon"
+href="assets/apple-touch-icon.png">
+
+<link rel="manifest"
+href="assets/site.webmanifest">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PlacePrep AI | Create Account</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/landing.css">
+
+    <link rel="stylesheet"
+          href="css/auth.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="bg-blur blur1"></div>
+<div class="bg-blur blur2"></div>
+<div class="bg-blur blur3"></div>
+
+<div class="landing-wrapper">
+
+<header class="landing-navbar">
+
+<div class="logo">
+
+<h2>PlacePrep AI</h2>
+
+</div>
+
+<div class="nav-links">
+
+<a href="#">Features</a>
+
+<a href="#">Dashboard</a>
+
+<a href="#">Interview</a>
+
+<a href="#">About</a>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="hero-badge">
+
+🚀 AI Powered Career Assistant
+
+</div>
+
+<h1>
+
+Land your
+
+<span>Dream Job</span>
+
+with AI.
+
+</h1>
+
+<p>
+
+Upload your resume.
+
+Improve your ATS score.
+
+Prepare with AI interviews.
+
+Track your placement readiness.
+
+Everything in one beautiful dashboard.
+
+</p>
+
+<div class="hero-features">
+
+<div>
+
+<i class="fa-solid fa-file-lines"></i>
+
+ATS Resume Analysis
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-brain"></i>
+
+AI Suggestions
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-microphone"></i>
+
+Mock Interviews
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="login-card">
+
+<div class="login-header">
+
+<h2>Create Account</h2>
+
+<p>
+
+Start your AI placement journey today.
+
+</p>
+
+</div>
+
+<form id="signupForm">
+
+<div class="input-group">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+id="name"
+placeholder="Full Name"
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password"
+required>
+
+</div>
+
+<div class="password-strength">
+
+<div class="strength-bar">
+
+<div id="strengthFill"></div>
+
+</div>
+
+<span id="strengthText">
+
+Password Strength
+
+</span>
+
+</div>
+
+<button
+class="login-btn"
+type="submit">
+
+Create Account
+
+</button>
+
+</form>
+
+<div class="divider">
+
+<span>or</span>
+
+</div>
+
+<button
+class="google-btn">
+
+<i class="fa-brands fa-google"></i>
+
+Continue with Google
+
+</button>
+
+<div class="signup-link">
+
+<div class="login-text">
+
+Already have an account?
+
+<a href="index.html">
+
+Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="landing-footer">
+
+    <p>
+        © 2026 PlacePrep AI • Built with ❤️ by Yukti Kathuria and Prachi
+    </p>
+
+</footer>
+
+</div>
+
+<script>
+
+const password=document.getElementById("password");
+const strengthFill=document.getElementById("strengthFill");
+const strengthText=document.getElementById("strengthText");
+
+password.addEventListener("input",()=>{
+
+let value=password.value;
+
+let score=0;
+
+if(value.length>=8) score++;
+if(/[A-Z]/.test(value)) score++;
+if(/[0-9]/.test(value)) score++;
+if(/[^A-Za-z0-9]/.test(value)) score++;
+
+if(score==0){
+
+strengthFill.style.width="0%";
+strengthText.innerHTML="Password Strength";
+
+}
+
+else if(score==1){
+
+strengthFill.style.width="25%";
+strengthFill.style.background="#ef4444";
+strengthText.innerHTML="Weak";
+
+}
+
+else if(score==2){
+
+strengthFill.style.width="50%";
+strengthFill.style.background="#f59e0b";
+strengthText.innerHTML="Average";
+
+}
+
+else if(score==3){
+
+strengthFill.style.width="75%";
+strengthFill.style.background="#3b82f6";
+strengthText.innerHTML="Good";
+
+}
+
+else{
+
+strengthFill.style.width="100%";
+strengthFill.style.background="#10b981";
+strengthText.innerHTML="Strong";
+
+}
+
+});
+
+document.getElementById("signupForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const pass=document.getElementById("password").value;
+const confirm=document.getElementById("confirmPassword").value;
+
+if(pass!==confirm){
+
+alert("Passwords do not match.");
+
+return;
+
+}
+
+/* Backend integration later */
+
+window.location.href="resume-upload.html";
+
+});
+
+</script>
