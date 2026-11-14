@@ -363,6 +363,7 @@ function extractSkills(resumeText){
 const uploadResume = async(req,res)=>{
 
     try{
+        console.log("UPLOAD ROUTE HIT");
 
         if(!req.file){
 
@@ -401,8 +402,10 @@ const uploadResume = async(req,res)=>{
         const skills = extractSkills(resumeText);
 
         let analysis;
+        console.log("RESUME UPLOAD RECEIVED - STARTING AI ANALYSIS");
 
         try{
+            console.log("CALLING GEMINI/GROQ ANALYSIS SERVICE...");
 
             analysis = await analyzeResume(resumeText);
 
@@ -410,17 +413,13 @@ const uploadResume = async(req,res)=>{
 console.log(JSON.stringify(analysis, null, 2));
         }
 
-        catch(err){
-
-            
-
-            console.log(err.message);
-
-           
+        catch(err) {
+            console.error("AI ANALYSIS FAILED:", err);
+            console.log("USING LOCAL FALLBACK ANALYZER");
             analysis = generateFallbackAnalysis(resumeText);
+}
 
-        }
-
+       
         const savedResume = await Resume.create({
 
             name: extractedName,
@@ -502,6 +501,7 @@ console.log(JSON.stringify(analysis, null, 2));
 const getAllResumes = async(req,res)=>{
 
     try{
+        
 
         const resumes = await Resume.find();
 
