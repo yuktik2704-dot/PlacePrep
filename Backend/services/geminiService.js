@@ -15,7 +15,7 @@ const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
 });
 
-const GEMINI_TIMEOUT = 10000;
+const GEMINI_TIMEOUT = 8000;
 const GROQ_TIMEOUT = 8000;
 
 function getGroqClient() {
@@ -39,9 +39,7 @@ function getErrorStatus(err) {
 }
 
 function isQuotaError(err) {
-    const message = String(
-        err.message || err
-    ).toLowerCase();
+    const message = String(err.message || err).toLowerCase();
 
     return (
         getErrorStatus(err) === 429 ||
@@ -173,33 +171,37 @@ function validateResumeAnalysis(data) {
 // ==========================================================
 // UNIVERSAL GEMINI CALL
 // Used by interview questions and evaluation.
+// One attempt, 8-second timeout.
 // ==========================================================
 
 async function callGemini(prompt, schema, maxTokens = 4096) {
-    for (let attempt = 1; attempt <= 2; attempt++) {
-        try {
-            console.log(`Gemini Attempt ${attempt}`);
+    try {
+        console.log("Starting Gemini interview request...");
 
-            const response = await ai.models.generateContent({
-                model: "gemini-flash-latest",
-                contents: prompt,
-                config: {
-                    temperature: 0.3,
-                    maxOutputTokens: maxTokens,
-                    responseMimeType: "application/json",
-                    responseSchema: schema
+        const response = await ai.models.generateContent({
+            model: "gemini-flash-latest",
+            contents: prompt,
+            config: {
+                temperature: 0.3,
+                maxOutputTokens: maxTokens,
+                responseMimeType: "application/json",
+                responseSchema: schema,
+                httpOptions: {
+                    timeout: GEMINI_TIMEOUT,
+                    retryOptions: {
+                        attempts: 1
+                    }
                 }
-            });
-
-            return extractJSON(response.text);
-
-        } catch (err) {
-            console.error("Gemini error:", err.message);
-
-            if (attempt === 2) {
-                throw err;
             }
-        }
+        });
+
+        console.log("Gemini interview request successful.");
+
+        return extractJSON(response.text);
+
+    } catch (err) {
+        console.error("Gemini interview error:", err.message);
+        throw err;
     }
 }
 
@@ -400,8 +402,7 @@ IMPORTANT INSTRUCTIONS:
 
 // ==========================================================
 // ANALYZE RESUME
-// Gemini -> Gemini retry -> Groq
-// Existing controller fallback remains the final safety net.
+// Gemini -> Groq -> Controller fallback
 // ==========================================================
 
 async function analyzeResume(resumeText) {
@@ -648,77 +649,46 @@ All project descriptions must contain meaningful detail.
 All explanations must be personalized to the supplied resume.
 `;
 
-// ------------------------------
-// GEMINI: TWO CONTROLLED ATTEMPTS
-// ------------------------------
+    try {
+        console.log("Starting Gemini ATS analysis...");
 
-    for (let attempt = 1; attempt <= 2; attempt++) {
-        try {
-            console.log(
-                `Gemini Resume Attempt ${attempt}/2`
-            );
-
-            const response = await ai.models.generateContent({
-                model: "gemini-flash-latest",
-
-                contents: prompt,
-
-                config: {
-                    responseMimeType: "application/json",
-                    responseSchema: ResumeSchema,
-                    temperature: 0.3,
-                    maxOutputTokens: 4096,
-
-                    httpOptions: {
-                        timeout: GEMINI_TIMEOUT,
-                        retryOptions: {
-                            attempts: 1
-                        }
+        const response = await ai.models.generateContent({
+            model: "gemini-flash-latest",
+            contents: prompt,
+            config: {
+                responseMimeType: "application/json",
+                responseSchema: ResumeSchema,
+                temperature: 0.3,
+                maxOutputTokens: 4096,
+                httpOptions: {
+                    timeout: GEMINI_TIMEOUT,
+                    retryOptions: {
+                        attempts: 1
                     }
                 }
-            });
-
-            const data = extractJSON(response.text);
-
-            validateResumeAnalysis(data);
-
-            console.log("Gemini resume analysis successful.");
-
-            return data;
-
-        } catch (err) {
-            console.error(
-                `Gemini Attempt ${attempt} Failed:`,
-                err.status || err.code || err.message
-            );
-
-            // Quota errors should go directly to Groq.
-            if (isQuotaError(err)) {
-                console.log(
-                    "Gemini quota/rate limit detected. Skipping retry."
-                );
-                break;
             }
+        });
 
-            // Retry only temporary failures.
-            if (attempt === 1 && isRetryableError(err)) {
-                console.log(
-                    "Retrying Gemini once..."
-                );
-                continue;
-            }
+        const data = extractJSON(response.text);
 
-            // For other failures, switch to Groq.
-            console.log(
-                "Gemini unavailable. Moving to Groq."
-            );
-            break;
+        validateResumeAnalysis(data);
+
+        console.log("Gemini resume analysis successful.");
+
+        return data;
+
+    } catch (err) {
+        console.error(
+            "Gemini ATS analysis failed:",
+            err.status || err.code || err.message
+        );
+
+        if (isQuotaError(err)) {
+            console.log("Gemini quota exhausted. Moving to Groq.");
+        } else {
+            console.log("Gemini unavailable. Moving to Groq.");
         }
     }
-
-    // ------------------------------
-    // GROQ FALLBACK
-    // ------------------------------
 
     try {
         return await analyzeWithGroq(prompt);
@@ -729,15 +699,13 @@ All explanations must be personalized to the supplied resume.
             err.status || err.code || err.message
         );
 
-        // Let the existing controller-level
-        // generateFallbackAnalysis handle the final fallback.
         throw err;
     }
 }
 
 // ==========================================================
 // GENERATE INTERVIEW QUESTIONS
-// Existing functionality preserved.
+// Gemini -> Local fallback
 // ==========================================================
 
 async function generateInterviewQuestions(resume) {
@@ -764,7 +732,10 @@ async function generateInterviewQuestions(resume) {
         return interview;
 
     } catch (err) {
-        console.log(err.message);
+        console.error(
+            "Interview generation failed. Using local fallback:",
+            err.message
+        );
 
         return generateFallbackInterview(resume);
     }
@@ -772,7 +743,7 @@ async function generateInterviewQuestions(resume) {
 
 // ==========================================================
 // EVALUATE INTERVIEW
-// Existing functionality preserved.
+// Gemini -> Local fallback
 // ==========================================================
 
 async function evaluateInterview(answers) {
@@ -822,7 +793,10 @@ Return EXACTLY this format.
         return report;
 
     } catch (err) {
-        console.log(err.message);
+        console.error(
+            "Interview evaluation failed. Using local fallback:",
+            err.message
+        );
 
         return generateFallbackEvaluation(answers);
     }
